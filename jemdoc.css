@@ -64,7 +64,6 @@ a, a > tt {
 }
 
 a:hover {
-	color: #07fc03;
     border-bottom: 1px gray dotted;
 }
 
@@ -77,7 +76,6 @@ a:hover {
     text-decoration: none;
 }
 #layout-menu a:hover {
-	color: #07fc03;
     text-decoration: none;
 }
 
@@ -92,8 +90,6 @@ div.menu-category {
 div.menu-item {
     padding-left: 16px;
     text-indent: -16px;
-	font-variant: small-caps;
-	font-size: 130%;
 }
 
 div#toptitle {
