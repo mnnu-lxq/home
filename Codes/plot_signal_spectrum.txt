@@ -1,0 +1,33 @@
+clear all;close all;clc;
+%-- Enter weight matrix of the graph
+W =
+G.W = W;
+G = gsp graph default parameters(G);
+G.plotting.vertex size = 100;
+G.coords = [0,0;2,2;3,-1;5,1;4,3;]
+G.plotting.limits = [-1,6,-2,4];
+%-- Define a Graph Signal here
+f =
+%---Graph Spectrum
+Gf = gsp compute fourier basis(G);
+paramplot.colorbar = 1;
+%plotting the signal (color coded)
+figure;
+gsp plot signal(G,f,paramplot);
+set(gca,'fontsize',20)
+title('Graph signal (color coded)');
+%plotting the signal (sticks)
+figure;%gplot(G.A,G.coords,'-or');hold on;box off;axis off;%title('ND signal on ER Graph');
+gsp plot graph(G);hold on;box off;axis off;title('Graph signal (sticks)');
+for m=1:G.N
+plot3([G.coords(m,1),G.coords(m,1)],[G.coords(m,2),G.coords(m,2)],[0,f(m)],'b','linewidth',3);
+end
+view([25,45]);
+%Plotting spectrum of the graph signal
+f hat = gsp gft(Gf,f);
+figure;
+gsp plot signal spectral(Gf,f hat);
+title('Spectrum of the graph signal');
+set(gca,'fontsize',20);
+xlabel('$\lambda \ell$','Interpreter','LaTex','FontSize',20);
+ylabel('$\hat{f}(\lambda \ell) $','Interpreter','LaTex','FontSize',20);
