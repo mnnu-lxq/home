@@ -1,1 +1,1 @@
-# https://xingquan-li.github.io/home
+# https://xingquan-li.github.io/homepage
